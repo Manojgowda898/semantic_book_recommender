@@ -1,17 +1,18 @@
 # Book Recommender System
 <div align="center">
-https://img.shields.io/badge/Python-3.8+-3776AB?style=for-the-badge&logo=python&logoColor=white
-https://img.shields.io/badge/Flask-2.3.0-000000?style=for-the-badge&logo=flask&logoColor=white
-https://img.shields.io/badge/Machine_Learning-Scikit--learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white
-https://img.shields.io/badge/Vector_Database-FAISS-00A8E1?style=for-the-badge
-https://img.shields.io/badge/Pandas-2.0+-150458?style=for-the-badge&logo=pandas&logoColor=white
-https://img.shields.io/badge/Jupyter-Notebook-F37626?style=for-the-badge&logo=jupyter&logoColor=white
-https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white
-https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white
-https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black
-https://img.shields.io/badge/License-MIT-green?style=for-the-badge
 
-https://img.shields.io/github/last-commit/manojm/book_recommender?style=for-the-badge&color=success
+![Python](https://img.shields.io/badge/Python-3.8+-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Flask](https://img.shields.io/badge/Flask-2.3.0-000000?style=for-the-badge&logo=flask&logoColor=white)
+![Machine Learning](https://img.shields.io/badge/Machine_Learning-Scikit--learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white)
+![Vector Database](https://img.shields.io/badge/Vector_Database-FAISS-00A8E1?style=for-the-badge)
+![Pandas](https://img.shields.io/badge/Pandas-2.0+-150458?style=for-the-badge&logo=pandas&logoColor=white)
+![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-F37626?style=for-the-badge&logo=jupyter&logoColor=white)
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
+
+[![Last Commit](https://img.shields.io/github/last-commit/Manojgowda898/semantic_book_recommender?style=for-the-badge&color=success)](https://github.com/Manojgowda898/semantic_book_recommender/commits/main)
 
 </div>
 A sophisticated book recommendation system built with Flask and machine learning, featuring content-based filtering and vector similarity search for intelligent book suggestions.
@@ -197,24 +198,25 @@ Access the application at: http://localhost:5002
 
 ## 📸 Screenshots & Demo
 <div align="center">
+
 ### 🏠 Main Dashboard
-![Dashboard](src/assets/screenshots/dashboard-overview.png)
+![Main Dashboard](assets/dashboard-overview.png)
 Main interface showing search functionality and suggestions.
 
 ### 🔍 Search & Recommendations
-https://via.placeholder.com/800x450/50E3C2/FFFFFF?text=Search+and+Recommendations
+![Search & Recommendations](assets/results.png)
 Real-time search results and book recommendations
 
 ### 📚 Book Details
-![URL Shortening](src/assets/screenshots/url-shortening.png)
+![Book Details](assets/book_details.png)
 Detailed book information with similar recommendations
 
 ### 📱 Mobile Responsive
-![Mobile](src/assets/screenshots/mobile-view.png)
+![Mobile Responsive](assets/mobile_responsive.png)
 Fully responsive design for mobile devices
 
 ### 🎥 Live Demo
-![Demo](src/assets/screenshots/demo.gif)
+![Demo](assets/demo.gif)
 Live demonstration of the recommendation system
 
 </div>
