@@ -200,24 +200,19 @@ Access the application at: http://localhost:5002
 <div align="center">
 
 ### 🏠 Main Dashboard
-![Main Dashboard](assets/dashboard_overview.png)
-Main interface showing search functionality and suggestions.
+![Dashboard](assets/dashboard_overview.png)
 
-### 🔍 Search & Recommendations
-![Search & Recommendations](assets/results.png)
-Real-time search results and book recommendations
+### 🔍 Search & Recommendations  
+![Search Results](assets/results.png)
 
 ### 📚 Book Details
 ![Book Details](assets/book_details.png)
-Detailed book information with similar recommendations
 
 ### 📱 Mobile Responsive
-![Mobile Responsive](assets/mobile_responsive.png)
-Fully responsive design for mobile devices
+![Mobile View](assets/mobile_responsive.png)
 
 ### 🎥 Live Demo
-![Demo](assets/demo.gif)
-Live demonstration of the recommendation system
+![Demo](assets/book_demo.gif)
 
 </div>
 
