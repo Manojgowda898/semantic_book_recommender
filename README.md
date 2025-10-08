@@ -212,7 +212,7 @@ Access the application at: http://localhost:5002
 ![Mobile View](assets/mobile_responsive.png)
 
 ### 🎥 Live Demo
-![Demo](assets/book_demo.gif)
+![Demo](assets/demobook.gif)
 
 </div>
 
