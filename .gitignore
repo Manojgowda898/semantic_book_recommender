@@ -45,3 +45,4 @@ Thumbs.db
 
 # Data files (optional - include if you want to share the cleaned data)
 # books_cleaned.csv
+.env
