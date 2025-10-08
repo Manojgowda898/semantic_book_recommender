@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semantic Book Recommender</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Semantic Book Recommender</h1>
+            <p>Discover your next favorite book using AI-powered semantic search across {{ total_books }} titles</p>
+        </header>
+
+        <main>
+            <div class="search-section">
+                <form id="searchForm">
+                    <div class="search-box">
+                        <input 
+                            type="text" 
+                            id="searchInput" 
+                            placeholder="Describe the book you're looking for..."
+                            required
+                            autocomplete="off"
+                        >
+                        <button type="submit">Search</button>
+                    </div>
+                    
+                    <div class="filters">
+                        <div class="filter-group">
+                            <label for="categoryFilter">Category</label>
+                            <select id="categoryFilter">
+                                <option value="">All Categories</option>
+                                <option value="Fiction">Fiction</option>
+                                <option value="Juvenile Fiction">Children's Books</option>
+                                <option value="Science">Science</option>
+                                <option value="Biography & Autobiography">Biography</option>
+                                <option value="History">History</option>
+                                <option value="Business & Economics">Business</option>
+                            </select>
+                        </div>
+                        
+                        <div class="filter-group">
+                            <label for="ratingFilter">Minimum Rating</label>
+                            <select id="ratingFilter">
+                                <option value="0">Any Rating</option>
+                                <option value="3">3+ Stars</option>
+                                <option value="3.5">3.5+ Stars</option>
+                                <option value="4">4+ Stars</option>
+                                <option value="4.5">4.5+ Stars</option>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+
+                <div class="suggestions">
+                    <p>Try searching for:</p>
+                    <div id="suggestionTags"></div>
+                </div>
+            </div>
+
+            <!-- Search Results Section -->
+            <div id="results" class="results hidden">
+                <div class="results-header">
+                    <h2>Search Results for: "<span id="resultsTitle"></span>"</h2>
+                    <p><span id="resultsCount">0</span> books found</p>
+                </div>
+                <div id="booksList" class="books-grid"></div>
+            </div>
+
+            <!-- Loading Indicator -->
+            <div id="loading" class="loading hidden">
+                <div class="spinner"></div>
+                <p>Searching through {{ total_books }} books...</p>
+            </div>
+
+            <!-- Error Message -->
+            <div id="error" class="error hidden">
+                <p id="errorMessage">An error occurred</p>
+            </div>
+        </main>
+
+        <footer>
+            <p>Powered by AI • Built with Flask • Your Personal Book Discovery Assistant</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
