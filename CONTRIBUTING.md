@@ -1,6 +1,6 @@
 # Contributing Guidelines
 
-Thank you for your interest in contributing to the Cybersecurity Threat Detection System project! By participating, you help improve the system and make it more robust.
+Thank you for your interest in contributing to the Semantic Book Recommender project! By participating, you help improve the system and make it more robust.
 
 ## How to Contribute
 
