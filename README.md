@@ -200,7 +200,7 @@ Access the application at: http://localhost:5002
 <div align="center">
 
 ### 🏠 Main Dashboard
-![Main Dashboard](assets/dashboard-overview.png)
+![Main Dashboard](assets/dashboard_overview.png)
 Main interface showing search functionality and suggestions.
 
 ### 🔍 Search & Recommendations

@@ -131,22 +131,37 @@ def get_suggestions():
     ]
     return jsonify({'suggestions': suggestions})
 
-def perform_semantic_search(query, category_filter='', min_rating=0, limit=10):
-    """Perform semantic search using vector database"""
+def perform_semantic_search(query, category_filter='', min_rating=0, limit=20):
+    """Perform semantic search using vector database with duplicate removal"""
     try:
         if vector_db is None:
             return perform_text_search(query, category_filter, min_rating, limit)
         
-        # Use vector database
-        search_results = vector_db.similarity_search(query, k=limit)
+        # Use vector database - get more results to account for filtering and duplicates
+        search_results = vector_db.similarity_search(query, k=limit * 3)  # Get more to filter duplicates
         
-        # Convert to our format
+        # Convert to our format and remove duplicates
+        seen_books = set()
         results = []
+        
         for doc in search_results:
+            book_id = doc.metadata.get('book_index', '')
+            title = doc.metadata.get('title', 'Unknown Title')
+            authors = doc.metadata.get('authors', 'Unknown Author')
+            
+            # Create a unique identifier for the book
+            book_key = f"{title}_{authors}"
+            
+            # Skip if we've already seen this book
+            if book_key in seen_books:
+                continue
+                
+            seen_books.add(book_key)
+            
             book_data = {
-                'id': doc.metadata.get('book_index', ''),
-                'title': doc.metadata.get('title', 'Unknown Title'),
-                'authors': doc.metadata.get('authors', 'Unknown Author'),
+                'id': book_id,
+                'title': title,
+                'authors': authors,
                 'categories': doc.metadata.get('categories', 'Unknown Category'),
                 'published_year': doc.metadata.get('published_year', 'Unknown'),
                 'average_rating': float(doc.metadata.get('average_rating', 0)),
@@ -154,21 +169,28 @@ def perform_semantic_search(query, category_filter='', min_rating=0, limit=10):
                 'description': clean_description(doc.page_content),
                 'thumbnail': doc.metadata.get('thumbnail', '')
             }
+            
             # Apply filters
             if category_filter and book_data['categories'] != category_filter:
                 continue
             if min_rating > 0 and book_data['average_rating'] < min_rating:
                 continue
+                
             results.append(book_data)
+            
+            # Stop when we have enough unique results
+            if len(results) >= limit:
+                break
         
-        return results[:limit]
+        logger.info(f"Found {len(results)} unique books after filtering duplicates")
+        return results
             
     except Exception as e:
         logger.error(f"Semantic search error: {e}")
         return perform_text_search(query, category_filter, min_rating, limit)
 
 def perform_text_search(query, category_filter='', min_rating=0, limit=10):
-    """Fallback text-based search"""
+    """Fallback text-based search with duplicate removal"""
     try:
         if books_df is None or len(books_df) == 0:
             return []
@@ -191,6 +213,9 @@ def perform_text_search(query, category_filter='', min_rating=0, limit=10):
         )
         
         filtered_books = filtered_books[mask]
+        
+        # Remove duplicates based on title and author
+        filtered_books = filtered_books.drop_duplicates(subset=['title', 'authors'])
         
         return format_books_for_display(filtered_books.head(limit))
             
